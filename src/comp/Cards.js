@@ -6,7 +6,7 @@ import Card from './Card'
 const useStyles = makeStyles({
     root:{
         display: 'grid',
-        gridTemplateColumns: 'auto auto auto auto',
+        gridTemplate: '5rem 5rem 5rem 5rem / 22% 22% 22% 22%',
         margin:'2% 10% 2% 10%',
     }
 })
