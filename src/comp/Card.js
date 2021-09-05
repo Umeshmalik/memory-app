@@ -25,7 +25,7 @@ function SimpleCard({alphabet}) {
   }
   return (
     <Card className={classes.root}>
-      {solvedAlphabet.includes(alphabet.value) && <CardContent style={{visiblity:'hidden'}}>{alphabet.value}</CardContent>}
+      {solvedAlphabet.includes(alphabet.value) && <CardContent style={{display:'none'}}>{alphabet.value}</CardContent>}
       {!showCard && !solvedAlphabet.includes(alphabet.value) && <CardContent style={{display:`${showCard?'none':'false'}`}} onClick={()=>makeCardVisible()}>{alphabet.blank}</CardContent>}
       {showCard && <CardContent>{alphabet.value}</CardContent>}
     </Card>
