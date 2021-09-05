@@ -15,23 +15,23 @@ function Cards() {
     const styles = useStyles();
     const {setScore, gridElements, solvedAlphabet, setSolvedAlphabet, setChooseCard}  = useContext(context)
     let [choosenCards, setChoosenCards ]= useState('')
-    let choosenIdx = -1
+    const [choosenIdx , setChoosenIdx]= useState(-1)
     const checkIfSame = ({alphabet, idx}) =>{
         if(solvedAlphabet.includes(alphabet.value))
             return
         setChooseCard(prev => !prev)
-        if(!solvedAlphabet.includes(choosenCards) && choosenIdx !== idx  && choosenCards !== '' && choosenCards === alphabet.value){
-            choosenIdx = -1
+        if(choosenIdx !== idx  && choosenCards !== '' && choosenCards === alphabet.value){
+            setChoosenIdx(-1)
             setSolvedAlphabet([...solvedAlphabet,alphabet.value])
             setChooseCard('')
         }else if(choosenIdx === -1){
             setChoosenCards(alphabet.value)
-            choosenIdx = idx
+            setChoosenIdx(idx)
         }else{
             setChoosenCards('')
             if(!solvedAlphabet.includes(alphabet.value) && choosenIdx !== idx)
                 setScore(prev => prev+1);
-            choosenIdx = idx
+            setChoosenIdx(-1)
         }
     }
     return (
