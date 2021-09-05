@@ -20,13 +20,13 @@ function SimpleCard({alphabet}) {
   const [showCard, setShowCard] = useState(false);
   
   const makeCardVisible = ()=>{
-    setShowCard(true)
+    setShowCard(!showCard)
     setTimeout(()=>setShowCard(false),1000)
   }
   return (
     <Card className={classes.root}>
-      {solvedAlphabet.includes(alphabet.value) && <CardContent style={{visibility:'hidden'}}>{alphabet.value}</CardContent>}
-      {!showCard && !solvedAlphabet.includes(alphabet.value) && <CardContent  onClick={()=>makeCardVisible()}>{alphabet.blank}</CardContent>}
+      {solvedAlphabet.includes(alphabet.value) && <CardContent style={{display:'none'}}>{alphabet.value}</CardContent>}
+      {!showCard && !solvedAlphabet.includes(alphabet.value) && <CardContent style={{display:`${showCard?'none':'false'}`}} onClick={()=>makeCardVisible()}>{alphabet.blank}</CardContent>}
       {showCard && <CardContent>{alphabet.value}</CardContent>}
     </Card>
   );

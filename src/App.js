@@ -1,3 +1,4 @@
+import { Container } from '@material-ui/core';
 import { createContext, useState, useEffect } from 'react';
 import './App.css';
 import Cards from './comp/Cards';
@@ -26,7 +27,7 @@ function App() {
   
   return (
     <context.Provider value={{score, setScore, gridElements, setGridElements, solvedAlphabet, setSolvedAlphabet}}>
-      <div className="App">
+      <Container className="App">
         <header>
           <h2>Memory Game</h2>
           <h5>Welcome</h5>
@@ -34,7 +35,7 @@ function App() {
         <ScoreDisplay/>
         <Cards/>
         <Models/>
-      </div>
+      </Container>
    </context.Provider>
   );
 }

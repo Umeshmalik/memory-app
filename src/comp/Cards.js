@@ -36,7 +36,8 @@ function Cards() {
             {
                 gridElements.map((alphabet,idx)=><div key={idx} onClick={(e)=>{checkIfSame({alphabet,idx})}}>
                                             <Card alphabet = {alphabet} />
-                                              </div>)
+                                              </div>
+                                )
             }
         </div>
     )
