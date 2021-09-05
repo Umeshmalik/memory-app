@@ -13,6 +13,7 @@ function App() {
   const [gridElements, setGridElements ]  = useState([]);
   const [score, setScore] = useState(0);
   const [selectedAlphabet, setSelectedAlphabet] = useState([]);
+  const [choosenCard, setChooseCard] = useState(false);
   useEffect(()=>{
     setGridElements(shuffle())
     window.onbeforeunload = function() {
@@ -26,11 +27,10 @@ function App() {
   },[])
   
   return (
-    <context.Provider value={{score, setScore, gridElements, setGridElements, solvedAlphabet, setSolvedAlphabet, selectedAlphabet, setSelectedAlphabet}}>
+    <context.Provider value={{score, setScore, gridElements, setGridElements, solvedAlphabet, setSolvedAlphabet, selectedAlphabet, setSelectedAlphabet, choosenCard, setChooseCard}}>
       <Container className="App">
         <header>
-          <h2>Memory Game</h2>
-          <h5>Welcome</h5>
+          <h2>Welcome to Memory Game</h2>
         </header>
         <ScoreDisplay/>
         <Cards/>
