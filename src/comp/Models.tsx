@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import { useContext, FC } from 'react'
 import {  makeStyles } from '@material-ui/core';
+
 import SimpleModal from './Model';
 import { context } from '../App';
 
@@ -14,7 +15,7 @@ const useStyles = makeStyles({
     }
   })
 
-function Models() {
+const Models: FC = () => {
   const {choosenCard} = useContext(context)
   const styles = useStyles();
 

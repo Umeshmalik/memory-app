@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+
 import { context } from "../App";
+import { GridOptions } from "../types";
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-function SimpleCard({alphabet}) {
+const SimpleCard = ({alphabet}: {alphabet: GridOptions})  => {
   const classes = useStyles();
   const {solvedAlphabet} = useContext(context)
   const [showCard, setShowCard] = useState(false);
