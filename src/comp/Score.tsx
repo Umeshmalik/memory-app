@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { context } from '../App'
+import { useContext, FC } from 'react';
+import { context } from '../App';
 
-function ScoreDisplay() {
+const ScoreDisplay: FC = () => {
     const {score, solvedAlphabet} = useContext(context)
     if(solvedAlphabet.length === 8){
-        window.location.reload('You Completed Game \n Press Leave Page to Restart Page')
+        window.location.reload();
     }
     return (
         <div>
