@@ -1,12 +1,12 @@
 import { useContext, useState, FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import { Button } from '@material-ui/core';
+import { Button, Modal as MaterialModal } from '@material-ui/core';
+
 import { exit } from '../constants/exit';
 import { context } from '../App';
 import { GridItems } from '../constants/GridConstants';
 
-import { SimpleModalTypes } from '../types';
+import { ModalTypes } from '../types';
 
 
 const ModalStyle = {
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SimpleModal: FC<SimpleModalTypes> = ({ issue, desc, variant, color }) => {
+const Modal: FC<ModalTypes> = ({ issue, desc, variant, color }) => {
   const classes = useStyles();
 
   const contextData = useContext(context)
@@ -59,14 +59,14 @@ const SimpleModal: FC<SimpleModalTypes> = ({ issue, desc, variant, color }) => {
   return (
     <div>
       <Button variant={variant} color={color} onClick={openModel}>{issue}</Button>
-      <Modal
+      <MaterialModal
         open={open}
         onClose={handleClose}
       >
         {body()}
-      </Modal>
+      </MaterialModal>
     </div>
   );
 }
 
-export default SimpleModal
+export default Modal
