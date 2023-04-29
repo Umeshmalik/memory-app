@@ -43,7 +43,7 @@ const SimpleModal: FC<SimpleModalTypes> = ({ issue, desc, variant, color }) => {
     setOpen(false);
   };
 
-  const Body: FC = () => (
+  const body = () => (
     <div style={ModalStyle} className={classes.paper}>
       <h2>{issue}</h2>
       <p>{desc}</p>
@@ -63,7 +63,7 @@ const SimpleModal: FC<SimpleModalTypes> = ({ issue, desc, variant, color }) => {
         open={open}
         onClose={handleClose}
       >
-        <Body />
+        {body()}
       </Modal>
     </div>
   );

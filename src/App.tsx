@@ -52,14 +52,14 @@ const App: FC = () => {
   
   return (
     <context.Provider value={contextValues}>
-      <Container className="App">
+      <div className="App">
         <header>
           <h2>Welcome to Memory Game</h2>
         </header>
         <ScoreDisplay/>
         <Cards/>
         <Models/>
-      </Container>
+      </div>
    </context.Provider>
   );
 }
