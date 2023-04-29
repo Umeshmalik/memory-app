@@ -1,7 +1,7 @@
-export type AllowedAplhabets = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
+export type AllowedAlphabets = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
 
 export type GridOptions = {
-    value: AllowedAplhabets,
+    value: AllowedAlphabets,
     blank: '?'
 }
 
@@ -9,16 +9,14 @@ export type GridConstantsTypes = Array<GridOptions>
 
 export interface ContextInterface {
     score: number;
-    solvedAlphabet: Array<AllowedAplhabets>;
+    solvedAlphabet: Array<AllowedAlphabets>;
     gridElements: GridConstantsTypes;
-    choosenCard: boolean;
     setGridElements: Function;
     setSolvedAlphabet: Function;
-    setChooseCard: Function;
     setScore: Function;
 };
 
-export interface SimpleModalTypes {
+export interface ModalTypes {
     issue: 'Exit' | 'Reset';
     desc: 'Are you sure to Reset Game?' | 'Are you sure to exit?';
     variant: 'contained' | 'outlined';

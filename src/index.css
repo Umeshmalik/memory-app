@@ -16,5 +16,5 @@ code {
   font-family: 'Blanka';
   font-style: normal;
   font-weight: normal;
-  src: local('Blanka'), url('./res/Blanka-Regular.otf') format('truetype');
+  src: local('Blanka'), url('./font/Blanka-Regular.otf') format('truetype');
 }
