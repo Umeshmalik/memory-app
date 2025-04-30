@@ -53,7 +53,8 @@ jobs:
           CONFIG=$(aws cloudfront get-distribution \
             --id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
             --output json)
-          echo "Deployed Assets are accessible at https://${CONFIG.Distribution.DomainName}/"
+          DOMAIN_NAME=$(echo $CONFIG | jq -r '.Distribution.DomainName')
+          echo "Deployed Assets are accessible at https://${DOMAIN_NAME}/"
 
       - name: Invalidate CloudFront cache
         run: |
