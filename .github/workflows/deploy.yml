@@ -45,7 +45,7 @@ jobs:
 
       - name: Sync build to S3
         run: |
-          aws s3 sync dist/ s3://react-app-livebuy --delete
+          aws s3 sync dist/ s3://${{ env.S3_BUCKET_NAME }} --delete
 
       - name: Invalidate CloudFront cache
         run: |
