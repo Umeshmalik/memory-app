@@ -49,11 +49,10 @@ jobs:
 
       - name: Deployed Assets are accessible at CloudFront
         run: |
-          DOMAIN_NAME=$(aws cloudfront get-distribution \
+          echo "Fetching CloudFront DomainName..."
+          aws cloudfront get-distribution \
             --id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --query "DomainName" \
-            --output text)
-          echo "✅ Deployed Assets are accessible at: https://${DOMAIN_NAME}/"
+            --output json
 
       - name: Invalidate CloudFront cache
         run: |
