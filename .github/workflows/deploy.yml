@@ -47,9 +47,13 @@ jobs:
         run: |
           aws s3 sync dist/ s3://${{ env.S3_BUCKET_NAME }} --delete
 
-      - name: Deployed Assets are accessible at
+      - name: Deployed Assets are accessible at CloudFront
         run: |
-          echo "Deployed Assets are accessible at https://${{ env.S3_BUCKET_NAME }}.s3.amazonaws.com/index.html"
+          DOMAIN_NAME=$(aws cloudfront get-distribution-config \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --query "Distribution.DomainName" \
+            --output text)
+          echo "Deployed Assets are accessible at https://${DOMAIN_NAME}/index.html"
 
       - name: Invalidate CloudFront cache
         run: |
