@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, FC } from 'react';
+import { createContext, useState, useEffect, type FC } from 'react';
 
 import './App.css';
 import Cards from './components/Cards';
